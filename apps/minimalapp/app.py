@@ -1,7 +1,6 @@
 #Flaskクラスをimportする
 
-from flask import Flask
-
+from flask import Flask, render_template
 #Flaskクラスをインスタンス化する
 
 app=Flask(__name__)
@@ -17,3 +16,9 @@ def index():
             endpoint="hello-endpoint")
 def heloo(name):
     return f"Hello,{name}!"
+
+#show_nameエンドポイント作成
+@app.route("/name/<name>")
+
+def show_name(name):
+    return render_template("index.html",name=name)
